@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gupaoedu.mapper.ShopMapper">
+
+
+    <resultMap id="BaseResultMap" type="shop">
+        <id column="sid" property="sid" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="business_range" property="businessRange" jdbcType="VARCHAR" typeHandler="com.gupaoedu.type.MyTypeHandler"/>
+    </resultMap>
+
+    <select id="selectList" resultMap="BaseResultMap" >
+        select * from shop
+    </select>
+
+    <insert id="insertOne" parameterType="shop">
+    insert into shop
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sid != null">
+                sid,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="businessRange != null">
+                business_range,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sid != null">
+                #{sid,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="businessRange != null">
+                #{businessRange,jdbcType=VARCHAR,typeHandler=com.gupaoedu.type.MyTypeHandler},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>
