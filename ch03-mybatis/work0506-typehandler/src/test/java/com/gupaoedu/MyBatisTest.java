@@ -2,6 +2,7 @@ package com.gupaoedu;
 
 import com.gupaoedu.domain.Shop;
 import com.gupaoedu.mapper.ShopMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.*;
 import org.junit.Before;
@@ -21,12 +22,14 @@ import java.util.List;
  *
  * 需要创建一张表、创建POJO、Mapper、xml映射器。
  */
+@Slf4j
 public class MyBatisTest {
 
     private SqlSessionFactory sqlSessionFactory;
 
     @Before
     public void prepare() throws IOException {
+        log.
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
