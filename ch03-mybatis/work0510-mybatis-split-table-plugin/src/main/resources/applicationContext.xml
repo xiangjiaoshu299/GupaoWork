@@ -22,14 +22,6 @@
         <property name="locations" value="classpath*:jdbc.properties"/>
     </bean>
 
-    <!-- Spring的连接池 -->
-<!--   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="${driverClassName}"/>
-        <property name="url" value="${url}"/>
-        <property name="username" value="${username}"/>
-        <property name="password" value="${password}"/>
-    </bean>-->
-
     <!-- Druid连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!-- 基本属性 url、user、password -->
@@ -86,10 +78,7 @@
         <property name="mapperInterface" value="com.gupaoedu.crud.dao.EmployeeMapper" />
     </bean>-->
 
-    <!-- DAO层的实现类 -->
-    <bean id="employeeDao" class="com.gupaoedu.crud.daosupport.EmployeeDaoImpl">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
+
 
     <!--配置一个可以执行批量的sqlSession，全局唯一，单例 -->
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
