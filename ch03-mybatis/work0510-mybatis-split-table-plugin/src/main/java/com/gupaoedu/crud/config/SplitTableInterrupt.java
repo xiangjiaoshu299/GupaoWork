@@ -45,7 +45,6 @@ public class SplitTableInterrupt implements Interceptor {
 
         MappedStatement mappedStatement = (MappedStatement) invocateArgs[0];
         Object queryArgs = invocateArgs[1];
-        RowBounds rowBounds = (RowBounds) invocateArgs[2];
 
         //得到sql语句
         BoundSql boundSql = mappedStatement.getBoundSql(invocateArgs);
