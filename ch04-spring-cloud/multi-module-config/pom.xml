@@ -11,6 +11,9 @@
 
   <name>multi-module-config</name>
 
+  <modules>
+    <module>eureka-server-9090</module>
+  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
