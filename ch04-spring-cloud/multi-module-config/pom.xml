@@ -6,6 +6,7 @@
 
   <groupId>org.example</groupId>
   <artifactId>multi-module-config</artifactId>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <description>这是一个 spring cloud多模块项目，关于springCloudConfig的demo</description>
 
@@ -13,6 +14,7 @@
 
   <modules>
     <module>eureka-server-9090</module>
+    <module>user-service-8081</module>
   </modules>
 
   <properties>
