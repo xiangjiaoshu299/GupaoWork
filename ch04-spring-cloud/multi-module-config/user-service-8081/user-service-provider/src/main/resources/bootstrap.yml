@@ -1,0 +1,12 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9090/eureka
+spring:
+  cloud:
+    config:
+      discovery:
+        service-id: config-server #配置中心在eureka中的名字
+        enabled: true
+      profile: pro #配置文件后缀，使用 xxx-pro.properties
+      name: user-service #配置文件前缀 user-service.properties

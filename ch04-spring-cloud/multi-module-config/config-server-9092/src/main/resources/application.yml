@@ -1,0 +1,60 @@
+
+server:
+  port: 9092
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9090/eureka
+
+#配置中心配置。测试配置是否生效：http://localhost:9092/user-service/dev
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@gitee.com:qingping2099/tmp-repo.git
+          search-paths: gupao/springcloud-conf #仓库下配置所在的目录
+
+#          github的仓库，网络不好容易超时
+#          uri: git@github.com:xiangjiaoshu299/GupaoWork.git
+#          search-paths: ch04-spring-cloud/multi-module-config/config-server-9092/config
+
+          #授权方式法2：使用ssh方式。这样别人看到你的代码，也不能盗号了
+          ignore-local-ssh-settings: true
+          private-key: |
+                        -----BEGIN RSA PRIVATE KEY-----
+                        MIIEowIBAAKCAQEAzyv+OqqOKCkNbN49SHhwc2OJ6SSskfJGK6eCFnubKoiLFTua
+                        nTo+SJYWr1cNQgNfNmKRcXSeFGgSKcchKcAumqvLfnet5uK/BK76g6k+m7QtwS2e
+                        RKBhVG5mnkRQXpbunnztY/BTbvx+UfjTETNLitfEwY7Zcp+RuZM1P4ahOsbhT9Fz
+                        7gmrIaqpSJ9e9fYYUmdC4xWzLtSmk1lbqnopHoNzFDUuWDrG2JrrHCWd5lL9jQqU
+                        baROCYqSfy1oNltKNL7FglY2L62IbS7jL5OQKP5IaKHhiXiU0oWX3YgRLqiR5K4K
+                        jT95P+CDgYtd7JwKUEqO0bxr6AJG8joRpOK5+wIDAQABAoIBADR0vTB5kvkUO/P+
+                        6aF57W8qGvdPc+qYX7AZ/9RVg9pnLGA58VIyNycF6cSH1DGMzQTmPFFv577fAwpV
+                        A06g/KvpJ+NjxkKZ0ygKbh/8MIAYRSWOuW5C9aH9OjqErZzltpGmrC0L4vRNNmbn
+                        C/pk9JG5RHaGBwUA5lMItQjau+Q3lp8kUFjskQJyf5hGhac20SyBpybMk+owjnyr
+                        STN44L2jSA50W6w3bmXPIWaQiojiFfO5keDFRLWDNz2KhI6ZmApstoii7XO8MLxA
+                        sYAchV8yi0Ig0oabnk0tDYdhbu+k5bZpAsk8srFvilotuAiL5RyNEKBtPPSTiJoC
+                        ZM3WWWECgYEA6TypjdfuZ95U8v2o9b+aRyyumFznd3tJ/G5/qZNLGGKz7YaRXuoL
+                        4PShgziB80YGKaKXOBS6QbuTiO2WmNRIsoC+qrh6y0vD/2rZP+CXw/ag6Hpx1AW9
+                        rjrAqBOiLCu+tyFNcjaHmkUtS1tm86VKcWw3cdwy83bAA1rtjtzZz3MCgYEA42Qa
+                        i/DxjGdJtYJv6s4vwDATYjmalVJngskXrzWa7fPfems7DqR4Wmiv1HiTND8JfYas
+                        qekMhUXpwiD5S9VAD/FjqEwiGpi5rC0rXvv0J1ho4F4Qof7OeraScqLSRCZt+8nI
+                        rgaQ7wWGwuASDa4YpSIe0dYRRVG/s0qcKinjOVkCgYEA19zUFDpoJOvJ9Ya9DI0D
+                        jaIWCV/avmN161KdhuWS2APqAQjNnGnDCrV+kkMHSo9hfsFDcZ0FcXbYqh8yhUnb
+                        6pFrZfgNdgAua0OJxCvqamzlKaTBmvihQBKSYjyhmH34KeeBlRZQ1H/31snGc/Nj
+                        /aupeRDSezBJsBFE0jcmw28CgYA1HC1jIByayYkavuN6+TuH7PKqD4A+fie1EVjZ
+                        0HBmQX6h7ie2DM4bd7YRrzPakRqbWfg8GzWUbzbg46i2gJFc5+l55oZUpfU/9LDb
+                        l4d4JRshxHaoD4aUfM4JvmPUDRHFLGUV2GzDlwvZulIdJduVvjlqk1AnW6elrbh5
+                        1JzAyQKBgHyKiqSGxZyDGz35LS1ddtFLBYQkc8br8ZP+QB07wck8pWQe+vFyQkNl
+                        2x3wI1NNqekXSvWxd1CS8ZPXfz9WV0OcVpfPDpGGjS7H1a1H5Pelil/ycSHyuVcN
+                        DoVRaTW+/RAcIbpDM8aGGBcWEpHD/PS6L7nkS8Yx7FJP4RR48Cry
+                        -----END RSA PRIVATE KEY-----
+
+
+#          授权方式法1：https方式，直接写用户名密码
+#          uri: https://gitee.com/qingping2099/tmp-repo/
+#          username: 2099319236@qq.com
+#          password: xxx
