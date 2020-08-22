@@ -7,7 +7,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:9090/eureka
 
-#配置中心配置。测试配置是否生效：http://localhost:9092/user-service/dev
+#配置中心配置。测试配置是否生效：http://localhost:9092/user-service/dev 提示：每次github上提交后，都能访问到最新的内容
 spring:
   application:
     name: config-server

@@ -2,6 +2,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:9090/eureka
+
 spring:
   cloud:
     config:
@@ -10,3 +11,9 @@ spring:
         enabled: true
       profile: pro #配置文件后缀，使用 xxx-pro.properties
       name: user-service #配置文件前缀 user-service.properties
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh #允许actuator的一个请求，用来刷新配置。url: http://localhost:8082/actuator/refresh

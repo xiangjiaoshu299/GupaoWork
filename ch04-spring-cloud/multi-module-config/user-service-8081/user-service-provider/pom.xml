@@ -35,6 +35,12 @@
             <artifactId>spring-cloud-config-client</artifactId>
         </dependency>
 
+<!--        手动更新配置中心内容，需要这个-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
