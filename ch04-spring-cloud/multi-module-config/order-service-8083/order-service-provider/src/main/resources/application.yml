@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: order-service #注意：这里和IOrderService的注解上起的名字保持一致
+
+server:
+  port: 8083
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9090/eureka

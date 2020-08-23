@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RefreshScope//允许刷新配置
 @RestController
-public class DescController {
+public class ConfController {
 
     @Value("${conf-desc}")
     private String desc;

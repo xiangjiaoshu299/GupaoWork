@@ -14,11 +14,12 @@
 
   <modules>
     <module>eureka-server-9090</module>
-    <module>user-service-8081</module>
+    <module>user-service-8082</module>
+      <module>order-service-8083</module>
   </modules>
 
   <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
+    <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
