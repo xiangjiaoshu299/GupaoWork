@@ -1,0 +1,13 @@
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh #允许actuator的一个请求，用来刷新配置。url: http://localhost:8082/actuator/refresh
+spring:
+  application:
+    name: user-service
+
+server:
+  port: 8082 # 8081被电脑上的nexus占用了
