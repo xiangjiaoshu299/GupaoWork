@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
-    <artifactId>order-service-provider</artifactId>
+    <artifactId>springcloud-nacos-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>order-service-provider</name>
+    <name>springcloud-nacos-consumer</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
-        <artifactId>order-service-8083</artifactId>
+        <artifactId>springcloud-nacos-demo</artifactId>
         <groupId>org.example</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -21,35 +21,24 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
 
-        <!--        手动更新配置中心内容，需要这个-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-
-        <!--        配置中心消息总线用到-->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bus-kafka</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
         </dependency>
-
 
         <dependency>
             <groupId>org.example</groupId>
-            <artifactId>order-service-api</artifactId>
+            <artifactId>springcloud-nacos-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
@@ -64,7 +53,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -84,7 +72,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.0.RELEASE</version>
                 <configuration>
-                    <mainClass>com.example.orderserviceprovider.OrderServiceProviderApplication</mainClass>
+                    <mainClass>com.example.springcloudnacosconsumer.SpringcloudNacosConsumerApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

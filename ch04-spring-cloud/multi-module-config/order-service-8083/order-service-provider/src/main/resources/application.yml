@@ -1,10 +1,16 @@
-spring:
-  application:
-    name: order-service #注意：这里和IOrderService的注解上起的名字保持一致
-
 server:
   port: 8083
 
+spring:
+  application:
+    name: order-service #注意：这里和IOrderService的注解上起的名字保持一致
+  cloud:
+    bus:
+      enabled: true
+  kafka:
+    bootstrap-servers: 192.168.25.130:9092
+    consumer:
+      group-id: order-service
 
 management:
   endpoints:
