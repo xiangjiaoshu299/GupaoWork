@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
-    <artifactId>springboot-nacos-demo</artifactId>
+    <artifactId>springboot-nacos-consumer-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-nacos-demo</name>
+    <name>springboot-nacos-consumer-demo</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -19,6 +19,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-starter</artifactId>
+            <version>0.2.7</version>
         </dependency>
 
         <dependency>
