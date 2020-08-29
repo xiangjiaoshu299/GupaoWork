@@ -2,14 +2,18 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>springcloud-nacos-demo</artifactId>
-        <groupId>org.example</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
+<!--ghf觉得：这里最好不要做成有parent的，因为别的项目（不在同一个父工程下）可能会用到这个包，做成有parent会引入失败-->
+<!--    <parent>-->
+<!--        <artifactId>springcloud-nacos-demo</artifactId>-->
+<!--        <groupId>org.example</groupId>-->
+<!--        <version>1.0-SNAPSHOT</version>-->
+<!--    </parent>-->
 
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.example</groupId>
     <artifactId>springcloud-nacos-api</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <name>springcloud-nacos-api</name>
     <!-- FIXME change it to the project's website -->
