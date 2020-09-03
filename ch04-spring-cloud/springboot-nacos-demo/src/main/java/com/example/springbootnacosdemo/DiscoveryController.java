@@ -19,17 +19,19 @@ public class DiscoveryController {
     private NamingService namingService;
 
     //得到注册中心上的所有服务列表
-    //测试，访问 http://localhost:8080/instances?serviceName=springcloud-nacos-provider
+    //测试，访问 http://localhost:8080/instances?serviceName=providerA
     @GetMapping("instances")
     public List<Instance> instancesInNacos(String serviceName) throws NacosException {
         return namingService.getAllInstances(serviceName);
     }
 
     //注册一个服务到nacos上面
-    @PostMapping("registry")
+    //@PostMapping("registry")
+    @GetMapping("registry")//为了方便测试，改成get
     public String registry(){
         try {
-            namingService.registerInstance("provider2", "192.168.25.111", 8081,"clusterAAA");
+            //namingService.registerInstance("providerA", "192.168.25.111", 8081,"clusterAAA");
+            namingService.registerInstance("providerA", "172.20.0.1", 20880,"clusterAAA");
         } catch (NacosException e) {
             e.printStackTrace();
         }
