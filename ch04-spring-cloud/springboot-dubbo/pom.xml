@@ -2,20 +2,22 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>springcloud-nacos-demo</artifactId>
+  <artifactId>springboot-dubbo</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <modules>
-<!--    <module>springcloud-nacos-api</module>-->
-    <module>springcloud-nacos-provider</module>
-    <module>springcloud-nacos-consumer</module>
+    <module>dubbo-service-api</module>
+    <module>dubbo-service-provider</module>
+    <module>dubbo-service-consumer</module>
   </modules>
 
-  <name>springcloud-nacos-demo</name>
-
+  <name>springboot-dubbo</name>
+  <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
@@ -23,7 +25,6 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
-    <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
   </properties>
 
   <dependencies>
@@ -37,13 +38,6 @@
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>com.alibaba.cloud</groupId>
-        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-        <version>${spring-cloud-alibaba.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
