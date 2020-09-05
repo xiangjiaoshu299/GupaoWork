@@ -39,6 +39,7 @@
             <version>1.2.1</version>
         </dependency>
 
+
         <dependency>
             <artifactId>dubbo-service-api</artifactId>
             <groupId>org.example</groupId>
