@@ -23,6 +23,7 @@ public class HelloAsyncController {
     //@DubboReference(timeout = 10 * 1000, methods = {@Method(name = "sayHelloWithDelay", async = true)})
     private IHelloWithDelayService helloWithDelayService;
 
+    //异步调用，不关心结果
     @GetMapping("sayWithDelayAsync")
     public String sayWithDelay() {
 
@@ -31,9 +32,9 @@ public class HelloAsyncController {
         return "返回的结果：" + remoteCallRes;
     }
 
-    //异步调用，阻塞至拿到结果
-    @GetMapping("sayWithDelayAsyncGet")
-    public String sayWithDelayAsyncGet() {
+    //异步调用，取结果，法一：通过RpcContext对象去做。通过RpcContext去拿future，阻塞至拿到结果
+    @GetMapping("sayByRpccontext")
+    public String sayByRpccontext() {
 
         helloWithDelayService.sayHelloWithDelay(3);
 
@@ -49,9 +50,9 @@ public class HelloAsyncController {
         return "返回的结果：" + resAfterBlock;
     }
 
-    //异步调用，拿到future结果。在@DubboReference()中，不配置这个方法异步，好像都可以，因为它都返回future了
-    @GetMapping("sayReturnFuture")
-    public String sayReturnFuture() {
+    //异步调用，取结果，法二：接口返回值设置成CompleteFuture。在@DubboReference()中，不配置这个方法异步，好像都可以，因为它都返回future了
+    @GetMapping("sayByReturnFuture")
+    public String sayByReturnFuture() {
 
         //future直接拿到
         CompletableFuture<String> future = helloWithDelayService.sayHelloAndGetFuture(3);
@@ -64,8 +65,14 @@ public class HelloAsyncController {
         return "返回的结果：" + resAfterBlock;
     }
 
+    //异步调用，取结果，法三：事件通知
+    @GetMapping("sayWithEvent")
+    public String sayWithEvent(){
+        
+    }
 
-    //这里用到的ResponseFuture废弃了，百度没找到替换方案，懒得测试了
+
+    //异步调用，取结果，法xxx：通过Rpccontext得到ResponseFuture对象。这里用到的ResponseFuture废弃了，百度没找到替换方案，懒得测试了
     //异步调用，阻塞至拿到结果，添加异常回调（不知道这个异常打印出来有啥子用，直接try也有异常啊）
 /*    @GetMapping("sayWithDelayAsyncTry")
     public String sayWithDelayAsyncTry() {
