@@ -13,6 +13,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * 基于zookeeper实现的一个分布式队列。
+ * 这个demo 有3个角色：队列、消费者、生产者。会演示多线程分别生产、消费10个消息
+ */
 public class DistributedQueue {
 
     CuratorFramework curatorFramework = null;
@@ -82,9 +86,6 @@ public class DistributedQueue {
     public static void main(String[] args) throws Exception {
 
         DistributedQueue queue = new DistributedQueue();
-
-        //queue.push();
-        //queue.pop();
 
         ExecutorService executorService = Executors.newFixedThreadPool(4);
         executorService.submit(new QueueProductor(queue));

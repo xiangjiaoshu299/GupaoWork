@@ -25,6 +25,11 @@ public class HelloWithDelayServiceImpl implements IHelloWithDelayService {
     }
 
     @Override
+    public String sayHelloWithDelayCopy(int count) {
+        return sayHelloWithDelay(count);
+    }
+
+    @Override
     public CompletableFuture<String> sayHelloAndGetFuture(int count) {
 
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
