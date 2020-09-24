@@ -19,5 +19,14 @@ public class MemberServiceTest {
     public void add(){
         int count = memberService.txAddMember();
         log.info("插入成功的记录数：" + count);
+
+        /**
+         * 测试结果：
+         * 插入成功的记录数：2
+         *
+         * 放开txAddMember()函数里面除0的非法操作的一行代码：
+         * （1）java.lang.ArithmeticException: / by zero
+         * （2）数据库未插入新的记录
+         */
     }
 }

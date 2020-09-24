@@ -20,7 +20,7 @@ public class MemberService {
         me.setAddr("宝安");
         int res1 = memberMapper.insert(me);
 
-//        int a = 5 / 0;
+        int a = 5 / 0;
 
         //第二次添加
         Member me2 = new Member();
