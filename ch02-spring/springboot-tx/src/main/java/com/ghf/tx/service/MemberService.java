@@ -13,12 +13,12 @@ public class MemberService {
     @Resource
     private MemberMapper memberMapper;
 
-    public void txAddMember(){
+    public int txAddMember(){
         Member me = new Member();
         me.setName("ghf");
         me.setAge(18);
         me.setAddr("宝安");
-        memberMapper.insert(me);
+        int res1 = memberMapper.insert(me);
 
 //        int a = 5 / 0;
 
@@ -27,6 +27,8 @@ public class MemberService {
         me2.setName("ggg");
         me2.setAge(18);
         me2.setAddr("赣州");
-        memberMapper.insert(me2);
+        int res2 = memberMapper.insert(me2);
+
+        return res1 + res2;
     }
 }
