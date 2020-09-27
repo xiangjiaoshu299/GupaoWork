@@ -4,14 +4,12 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-import sun.reflect.generics.tree.Tree;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        TreeNode treeNode = getTree();
+        MyTreeNode treeNode = getTree();
         treeNode.show();
 
         treeNode.remove(0);
@@ -19,7 +17,7 @@ public class Test {
         treeNode.show();
     }
 
-    private static TreeNode getTree() {
+    private static MyTreeNode getTree() {
 
         SAXReader reader = new SAXReader();
         try {
@@ -28,7 +26,7 @@ public class Test {
             Element rootEle = document.getRootElement();
             String name = rootEle.getName();
 
-            TreeNode treeNode = new TreeNode(name, name);
+            MyTreeNode treeNode = new MyTreeNode(name, name);
             scanTree(rootEle, treeNode, name);
 
             return treeNode;
@@ -39,14 +37,14 @@ public class Test {
         return null;
     }
 
-    private static void scanTree(Element parentElements, TreeNode parentNode, String parentXpath) {
+    private static void scanTree(Element parentElements, MyTreeNode parentNode, String parentXpath) {
         List<Element> elements = parentElements.elements();
 
         for (Element element : elements) {
             String name = element.getName();
-            String xPath = parentXpath + "/" + name;
+            String xPath = parentXpath + "/" + name + "(" + element.getTextTrim() + ")";
 
-            TreeNode treeNode = new TreeNode(name, xPath);
+            MyTreeNode treeNode = new MyTreeNode(name, xPath);
             parentNode.add(treeNode);
 
             scanTree(element, treeNode, xPath);

@@ -23,16 +23,35 @@ public class FeeMapperTest {
 
 
     @Test
-    public void list01(){
-        LocalDateTime dateTime = LocalDateTime.of(2020, 1, 15, 0, 0, 0);
-        List<Fee> list = feeMapper.selectList202001(dateTime);
-        System.out.println(list.size());
-    }
-
-    @Test
-    public void list(){
+    public void queryWithSplitCondition(){
+        //sql中，如果是from t_fee，则分表
         LocalDateTime dateTime = LocalDateTime.of(2020, 2, 15, 0, 0, 0);
         List<Fee> list = feeMapper.selectList(dateTime);
         System.out.println(list.size());
+
+
+        /**
+         * 测试结果：
+         * 信息: 执行分表逻辑
+         * 信息: 查询的sql: select * from t_fee where fee_date = ?
+         * 信息: 分表后的sql: select * from t_fee_202002 where fee_date = ?
+         * 1
+         */
     }
+
+    @Test
+    public void queryWithoutSplitCondition(){
+        //sql中，如果是from t_fee_202001，则不分表
+        LocalDateTime dateTime = LocalDateTime.of(2020, 1, 15, 0, 0, 0);
+        List<Fee> list = feeMapper.selectList202001(dateTime);
+        System.out.println(list.size());
+
+        /**
+         * 测试结果：
+         * 信息: 执行分表逻辑
+         * 信息: 查询的sql: select * from t_fee_202001 where fee_date = ?
+         * 1
+         */
+    }
+
 }

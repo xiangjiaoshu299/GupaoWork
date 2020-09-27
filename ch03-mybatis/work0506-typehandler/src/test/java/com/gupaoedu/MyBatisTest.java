@@ -29,7 +29,7 @@ public class MyBatisTest {
 
     @Before
     public void prepare() throws IOException {
-        log.
+        log.info("开始初始化");
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
