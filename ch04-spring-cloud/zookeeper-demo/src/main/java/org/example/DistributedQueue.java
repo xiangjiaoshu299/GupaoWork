@@ -9,8 +9,6 @@ import org.apache.zookeeper.data.Stat;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -81,17 +79,6 @@ public class DistributedQueue {
         //children.forEach(System.out::println);
 
         return first;
-    }
-
-    public static void main(String[] args) throws Exception {
-
-        DistributedQueue queue = new DistributedQueue();
-
-        ExecutorService executorService = Executors.newFixedThreadPool(4);
-        executorService.submit(new QueueProductor(queue));
-        executorService.submit(new QueueConsumer(queue));
-
-        System.in.read();//不让程序退出
     }
 }
 
